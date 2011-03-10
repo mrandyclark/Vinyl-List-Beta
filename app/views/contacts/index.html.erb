@@ -1,6 +1,6 @@
 <style>
 	body { font-family: georgia; background-color: #c0bfbb;}
-	.content { width: 600px; margin: 0px auto;}
+	.content { width: 600px; margin: 0px auto; clear: both; text-align: center; overflow: hidden;}
 
 	#brand  { width: 450px; margin: 0px auto;}
 	#fname { float: left; width: 290px; padding-right: 5px;}
@@ -13,6 +13,8 @@
 	#email input { width: 590px;}
 	
 	#actions { display: none;}
+	
+	#counter { margin-top: 15px;}
 </style>
 
 
@@ -80,4 +82,8 @@
 	    <%= f.submit %>
 	  </div>
 	<% end %>
+</div>
+
+<div id="counter" class="content">
+<p><%= pluralize(@all_contacts, "person is") %> interested in vinyllist.</p>
 </div>
