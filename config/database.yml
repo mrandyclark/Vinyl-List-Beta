@@ -6,10 +6,10 @@
 #   pool: 5
 #   timeout: 5000
 
-development:
-  adapter: mongodb
-  database: vinyl_list_beta_development
-  host: localhost
+# development:
+#   adapter: mongodb
+#   database: vinyl_list_beta-development
+#   host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

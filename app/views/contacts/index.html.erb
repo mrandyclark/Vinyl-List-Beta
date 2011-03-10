@@ -3,16 +3,14 @@
 	.content { width: 600px; margin: 0px auto;}
 
 	#brand  { width: 450px; margin: 0px auto;}
-/*	#fname { float: left; width: 290px; padding-right: 5px;}
-	#lname { float: right; width: 290px; padding-left: 5px;} */
+	#fname { float: left; width: 290px; padding-right: 5px;}
+	#lname { float: right; width: 290px; padding-left: 5px;}
 	
 	#about { text-align: center;}
 	input { font-size: 18px; line-height: 25px; height: 25px; padding: 5px; font-family: georgia;}
-/*	#fname input, #lname input { width: 280px;}*/
-	
-	#form { width: 400px; display: none;}
+	#fname input, #lname input { width: 280px;}
 	#email { padding-top: 15px; float: left; clear: both;}
-	#email input { width: 400px; text-align: center;}
+	#email input { width: 590px;}
 	
 	#actions { display: none;}
 </style>
@@ -30,8 +28,7 @@
 			$(this).val("");
 		}
 	});
-
-	$("#email input").blur(function() {
+		$("#email input").blur(function() {
 		if( $(this).val() == "" ) { $(this).val("email"); }
 	});
 	
@@ -45,6 +42,7 @@
 
 <div id="about" class="content">
 	<p>Vinyllist is a way for you to keep track of your vinyl collection, <Br/>see what your friends are spinning, and find new and interesting albums.</p>
+	<p>Sign up below to stay tuned.</p>
 </div>
 
 <div id="form" class="content">
@@ -58,6 +56,13 @@
 	      </ul>
 	    </div>
 	  <% end %>
+
+	  <div id="fname" class="field">
+	    <%= f.text_field :first_name, :value => "first name" %>
+	  </div>
+	  <div id="lname" class="field">
+	    <%= f.text_field :last_name, :value => "last name" %>
+	  </div>
 
 	  <div id="email" class="field">
 	    <%= f.text_field :email, :value => "email" %>
