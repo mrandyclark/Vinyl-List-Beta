@@ -21,15 +21,24 @@
   $(document).ready(function() {
 	
 	// clear an input
-  	$("#email input").click(function() {
+  	$("#fname input, #lname input, #email input").click(function() {
 		var value = $(this).val();
 		
 		if(value == "first name" || value == "last name" || value == "email") {
 			$(this).val("");
 		}
 	});
-		$("#email input").blur(function() {
+	
+	$("#fname input").blur(function() {
+		if( $(this).val() == "" ) { $(this).val("first name"); }
+	});
+	
+	$("#email input").blur(function() {
 		if( $(this).val() == "" ) { $(this).val("email"); }
+	});
+	
+	$("#lname input").blur(function() {
+		if( $(this).val() == "" ) { $(this).val("last name"); }
 	});
 	
   });
