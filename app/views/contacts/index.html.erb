@@ -1,0 +1,70 @@
+<style>
+	body { font-family: georgia; background-color: #c0bfbb;}
+	.content { width: 600px; margin: 0px auto;}
+
+	#brand  { width: 450px; margin: 0px auto;}
+/*	#fname { float: left; width: 290px; padding-right: 5px;}
+	#lname { float: right; width: 290px; padding-left: 5px;} */
+	
+	#about { text-align: center;}
+	input { font-size: 18px; line-height: 25px; height: 25px; padding: 5px; font-family: georgia;}
+/*	#fname input, #lname input { width: 280px;}*/
+	
+	#form { width: 400px;}
+	#email { padding-top: 15px; float: left; clear: both;}
+	#email input { width: 400px; text-align: center;}
+	
+	#actions { display: none;}
+</style>
+
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+	
+	// clear an input
+  	$("#email input").click(function() {
+		var value = $(this).val();
+		
+		if(value == "first name" || value == "last name" || value == "email") {
+			$(this).val("");
+		}
+	});
+
+	$("#email input").blur(function() {
+		if( $(this).val() == "" ) { $(this).val("email"); }
+	});
+	
+  });
+</script>
+
+
+<div id="brand" class="content">
+	<%= image_tag("brand.png")%>
+</div>
+
+<div id="about" class="content">
+	<p>Vinyllist is a way for you to keep track of your vinyl collection, <Br/>see what your friends are spinning, and find new and interesting albums.</p>
+	<p>Sign up below to stay tuned.</p>
+</div>
+
+<div id="form" class="content">
+	<%= form_for(@contact) do |f| %>
+	  <% if @contact.errors.any? %>
+	    <div id="error_explanation">
+	      <ul>
+	      <% @contact.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	  <div id="email" class="field">
+	    <%= f.text_field :email, :value => "email" %>
+	  </div>
+	  <div id="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
+</div>
